@@ -12,8 +12,7 @@ Here is the link through the article : https://doi.org/10.1093/clinchem/hvab133
 
 
 
-### To help expand the use of EPS in the diagnosis of more diseases, we transitioned from a supervised learning approach (cf article) to unsupervised learning, employing an autoencoder as the model architecture.
-Code follow in two parts :
+##### To help expand the use of EPS in the diagnosis of more diseases, we transitioned from a supervised learning approach (cf article) to unsupervised learning, employing an autoencoder as the model architecture. Code follow in two parts :
 
 The first part 'AE_traintest.py' concern the training of the model. It include training and validation part
 
