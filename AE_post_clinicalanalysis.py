@@ -2,7 +2,7 @@
 """
 Created on Mon Mar  7 09:17:36 2022
 
-@author: admin
+@author: dessennes-e
 """
 
 import argparse
@@ -57,17 +57,17 @@ ORIGINAL_DATA_TYPE = re.match("^ori", FLAGS.model_name) is not None
 # DATA PATH
 if FLAGS.host=="local":
     if FLAGS.dataset == "alzheimer":
-        path_in = r"C:\Users\admin\Documents\Capillarys\data\v2_2021\datasets\clinical\alzheimer_spectrv2.csv"
-        path_model = r'C:\Users\admin\Documents\Capillarys\data\v2_2021\out'
-        path_out = r'C:\Users\admin\Documents\Capillarys\data\v2_2021\out\clinical\alzheimer'
+        path_in = r"C:\your\path\to\alzheimer_spectrv2.csv"
+        path_model = r'C:\your\path\to\out'
+        path_out = r'C:\your\path\to\out\clinical\alzheimer'
     elif FLAGS.dataset == "covid":
-        path_in = r"C:\Users\admin\Documents\Capillarys\data\v2_2021\datasets\clinical\covid_spectrv2.csv"
-        path_model = r'C:\Users\admin\Documents\Capillarys\data\v2_2021\out'
-        path_out = r'C:\Users\admin\Documents\Capillarys\data\v2_2021\out\clinical\covid'
+        path_in = r"C:\your\path\to\covid_spectrv2.csv"
+        path_model = r'C:\your\path\to\out'
+        path_out = r'C:\your\path\to\covid'
     elif FLAGS.dataset == "covidinfl":
-        path_in = r"C:\Users\admin\Documents\Capillarys\data\v2_2021\datasets\clinical\covid_vs_infl_spectrv2.csv"
-        path_model = r'C:\Users\admin\Documents\Capillarys\data\v2_2021\out'
-        path_out = r'C:\Users\admin\Documents\Capillarys\data\v2_2021\out\clinical\covid_vs_infl'
+        path_in = r"C:\your\path\to\covid_vs_infl_spectrv2.csv"
+        path_model = r'C:\your\path\to\out'
+        path_out = r'C:\your\path\to\covid_vs_infl'
     else:
         raise Exception("Unknown dataset")
 else:
