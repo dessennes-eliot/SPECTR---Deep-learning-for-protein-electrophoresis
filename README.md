@@ -18,12 +18,12 @@ To help expand the use of EPS in the diagnosis of more diseases, we transitioned
 
 The first part 'AE_traintest.py' concern the training of the model. It include training and validation part
 
-The 2nd part 'AE_post_steps' and 'AE_clinicalanalysis' concern the use of the pre-trained model above. The objective is to perform supervised analyses using various machine learning algorithms on the latent space of the autoencoder. 
+The 2nd part 'AE_post_steps.py' and 'AE_clinicalanalysis.py' concern the use of the pre-trained model above. The objective is to perform supervised analyses using various machine learning algorithms on the latent space of the autoencoder. 
 
 
 
 
 
-The AE_post_steps code is intended for routine interpretation of EPS using this autoencoder (e.g., classification of beta/gamma fractions, monoclonal peaks, hemolysis, etc.). 
+AE_post_steps.py is intended for routine interpretation of EPS using this autoencoder (e.g., classification of beta/gamma fractions, monoclonal peaks, hemolysis, etc.). 
 
-The AE_clinicalanalysis code is designed to apply this method to the detection of novel pathologies (e.g., Alzheimer’s disease, COVID-19), based on the assumption that disease-specific proteins are released into the bloodstream during these pathologies and are therefore detectable by EPS. 
+AE_clinicalanalysis.py is designed to apply this method to the detection of novel pathologies (e.g., Alzheimer’s disease, COVID-19), based on the assumption that disease-specific proteins are released into the bloodstream during these pathologies and are therefore detectable by EPS. 
