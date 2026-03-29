@@ -2,13 +2,12 @@
 """
 Created on Wed Dec 15 14:45:35 2021
 
-@author: simeo
+@author: dessennes-e
 """
 
-# TODO multi-head loss ?
-
-# TODO isoler les meilleures architectures
-# -> TODO si utilisation z = dense, alors besoin VAE/noise injection?
+# This code is intended for training and validation of the autoencoder model 
+# Multiples model architectures can be used (sparse autoencoder, transformers...), use --base_architecture for this
+# The trained model can then be reloaded to perform supervised analysis on the latent space of the autoencoder
 
 import argparse
 
@@ -72,18 +71,19 @@ import pickle
 import os
 
 # DATA PATH
+# Depends on where your data are stored and where you want the results metrics to be stored
 if FLAGS.host=="local":
-    path_in = r'C:\Users\admin\Documents\Capillarys\data\v2_2021\datasets\data_matrix_vae_v01_withoriginal_utf8.csv'
-    path_out = r'C:\Users\admin\Documents\Capillarys\data\v2_2021\out'
-    path_out_score = r'C:\Users\admin\Documents\Capillarys\data\v2_2021\out\scores.xlsx'
+    path_in = r'C:\Your\path\to\data_matrix_vae_v01_withoriginal_utf8.csv'
+    path_out = r'C:\Your\path\to\out'
+    path_out_score = r'C:\Your\path\to\scores.xlsx'
 elif FLAGS.host=="ed":
-    path_in = "C:/Users/simeo/Desktop/SPECTR v2/datasets/data_matrix_vae_v01_withoriginal_utf8.csv"
-    path_out = "C:/Users/simeo/Documents/Tests pour potage réussi"
-    path_out_score = "C:/Users/simeo/Documents/Tests pour potage réussi/scores.xlsx"
+    path_in = "C:\Your\path\to\data_matrix_vae_v01_withoriginal_utf8.csv"
+    path_out = "C:\Your\path\to\Tests pour potage réussi"
+    path_out_score = "C:\Your\path\to\Tests pour potage réussi/scores.xlsx"
 else:
-    path_in = "/gpfsdswork/projects/rech/ild/uqk67mt/spectr_v2/data/data_matrix_vae_v01_withoriginal_utf8.csv"
-    path_out = "/gpfsdswork/projects/rech/ild/uqk67mt/spectr_v2/eliot"
-    path_out_score = "/gpfsdswork/projects/rech/ild/uqk67mt/spectr_v2/eliot/scores.xlsx"
+    path_in = "\Your\path\to\data_matrix_vae_v01_withoriginal_utf8.csv"
+    path_out = "\Your\path\to\eliot"
+    path_out_score = "\Your\path\to\eliot\scores.xlsx"
     
 def preventPlusSigns(val):
     if val==0:
@@ -143,8 +143,6 @@ else:
     
 # %%
 
-# TODO -> déplacer les tables de matching que l'on a fait pour les remettre dans la db utf8 originale
-# refaire une seule table de données avec x et rx !
 
 # load raw data
 raw = pd.read_csv(os.path.join(path_in))
