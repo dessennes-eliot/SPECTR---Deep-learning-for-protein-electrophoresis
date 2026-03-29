@@ -2,13 +2,13 @@
 """
 Created on Fri Dec 17 09:39:59 2021
 
-@author: admin
+@author: dessennes-e
 """
 
-# ici : 2e script
-# on recharge l'AE qui a été entraîné
-# puis on va post-processer ses résultats
-# pour réaliser un classifeur simple depuis son espace latent
+# Here : 2nd script
+# We load the trained autoencoder
+# Then we perform supervised learning on it's latent space to analyse serum protein electrophoresis
+
 
 # reload model
 # try inference on 1-3 curves -> see visual performance
@@ -340,24 +340,7 @@ plotReconstructionError(rng.choice(np.where(raw.ae_category=="oligoclonal_patter
 plotReconstructionError(rng.choice(np.where(raw.ae_category=="mspike_g_large")[0]))
 plotReconstructionError(rng.choice(np.where(raw.ae_category=="bridging_strong")[0]))
 plotReconstructionError(rng.choice(np.where(raw.ae_category=="nephrotic_syndrome")[0]))
-# Eliot's SAE
-# For curve 50973: MAE = 1.99e-03 ; MSE = 1.31e-05 ; RMSE = 1.72e-10
-# For curve 8624: MAE = 2.24e-03 ; MSE = 2.35e-05 ; RMSE = 5.53e-10
-# For curve 61059: MAE = 2.08e-03 ; MSE = 1.02e-05 ; RMSE = 1.04e-10
-# For curve 95309: MAE = 5.91e-03 ; MSE = 9.71e-05 ; RMSE = 9.42e-09
 
-# My SAE
-# For curve 50973: MAE = 1.14e-02 ; MSE = 3.48e-04 ; RMSE = 1.21e-07
-# For curve 8624: MAE = 1.44e-02 ; MSE = 6.55e-04 ; RMSE = 4.29e-07
-# For curve 61059: MAE = 9.67e-03 ; MSE = 2.55e-04 ; RMSE = 6.49e-08
-# For curve 95309: MAE = 1.81e-02 ; MSE = 1.05e-03 ; RMSE = 1.10e-06
-
-# Eliot's better, numerically & visually
-# TODO
-# tracks in order to improve :
-# RAE, VAE ? (will probably increase latent's space quality but not necessarily reconstruction quality)
-# adversarial ? not necessarily since "smoothed" reconstructed curves are realistic, just not matching the initial curve
-# architecture ? residuals, inception, multi-head loss, etc.
 
 # %%
 
@@ -605,15 +588,6 @@ worksheet3.conditional_format("{}1:{}{}".format(getExcelColumn(ci+1),getExcelCol
 
 writer.close()
 
-# %%
-
-# TODO
-# prochaines étapes:
-
-# permutation importance/RFE puis interpolation dans l'espace latent
-# pour voir quel est le motif qui correspond à chaque anomalie
-
-# et enfin: essai sur une cohorte clinique ?
 
 # %%
 
@@ -972,10 +946,9 @@ sns.scatterplot(x = encoding[single,0], y = encoding[single,1], size = 0.01)
 
 
 
-# Prochaine étape : faire une permutation importance pour voir quelles sont les dimensions
-# les plus importantes pour dichotomiser telle et telle pathologies
-# Puis corréler ça à des motifs observés sur les courbes pour vérifier la cohérence
-# avec les connaissances humaines
+# Next step: perform permutation importance to identify which dimensions are the most relevant to differentiate pathologies
+# then correlate these with patterns observed in the electrophoretic curves 
+# to see if it correlate with human knowledge of PSE.
 
 
 
