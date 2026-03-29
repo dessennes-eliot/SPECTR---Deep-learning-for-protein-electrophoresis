@@ -14,10 +14,10 @@ Here is the link through the article : https://doi.org/10.1093/clinchem/hvab133
 
 ##### To help expand the use of EPS in the diagnosis of more diseases, we transitioned from a supervised learning approach (cf article) to unsupervised learning, employing an autoencoder as the model architecture. Code follow in two parts :
 
-The first part 'AE_traintest.py' concern the training of the model. It include training and validation part
+###### The first part 'AE_traintest.py' concern the training of the model. It include training and validation part
 
-The 2nd part 'AE_post_steps' and 'AE_clinicalanalysis' concern the use of the pre-trained model above. The objective is to perform supervised analyses using various machine learning algorithms on the latent space of the autoencoder. 
+###### The 2nd part 'AE_post_steps' and 'AE_clinicalanalysis' concern the use of the pre-trained model above. The objective is to perform supervised analyses using various machine learning algorithms on the latent space of the autoencoder. 
 
-###### The AE_post_steps code is intended for routine interpretation of EPS using this autoencoder (e.g., classification of beta/gamma fractions, monoclonal peaks, hemolysis, etc.). 
+The AE_post_steps code is intended for routine interpretation of EPS using this autoencoder (e.g., classification of beta/gamma fractions, monoclonal peaks, hemolysis, etc.). 
 
-###### The AE_clinicalanalysis code is designed to apply this method to the detection of novel pathologies (e.g., Alzheimer’s disease, COVID-19), based on the assumption that disease-specific proteins are released into the bloodstream during these pathologies and are therefore detectable by EPS. 
+The AE_clinicalanalysis code is designed to apply this method to the detection of novel pathologies (e.g., Alzheimer’s disease, COVID-19), based on the assumption that disease-specific proteins are released into the bloodstream during these pathologies and are therefore detectable by EPS. 
